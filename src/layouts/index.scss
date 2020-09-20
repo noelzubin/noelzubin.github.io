@@ -1,0 +1,37 @@
+.theme-light {
+    --text-color: rgba(0,0,0,0.8);
+    --border-color: #ccbca9;
+    --border-color-light: #e2ecec;
+    --bg-color: white;
+    min-height: 100vh;
+}
+
+.theme-coffee {
+    --text-color: #433422;
+    --border-color: #ded0bf;
+    --border-color-light: #ded0bf;
+    --bg-color: #f1e7d0;
+    min-height: 100vh;
+}
+
+.theme-dark {
+    --text-color: white;
+    --border-color: #0d2538;
+    --border-color-light: #0d2538;
+    --bg-color: black;
+    min-height: 100vh;
+}
+
+.theme-light, .theme-coffee, .theme-dark {
+    .fixed-container {
+        background: var(--bg-color);
+    }
+}
+
+body * {
+    color: var(--text-color);
+}
+
+body {
+    transition: all 1000ms ease;
+}
