@@ -6,4 +6,23 @@
     max-width: 1300px
     display: block
     margin: 0 auto
-    padding: 3em
+    padding: 2em
+
+
+$mobile-landscape-width: 500px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile-landscape 
+  @media (min-width: #{$mobile-landscape-width})
+    @content
+
+@mixin tablet 
+  @media (min-width: #{$tablet-width})
+    @content
+ 
+
+@mixin desktop 
+  @media (min-width: #{$desktop-width}) 
+    @content;
+ 

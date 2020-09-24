@@ -1,3 +1,5 @@
+@import '../../../styles/global' 
+
 .main
     height: 100vh
     font-family: Montserrat
@@ -5,16 +7,16 @@
     flex-direction: column
     justify-content: center
     box-sizing: border-box
+    font-size: 6vw
+    font-weight: bold
     & > div 
-        font-size: 4rem
-        font-weight: bold
         margin: .5rem 0
         position: relative
     \:global .letter
         position: relative
 
 .love *
-    color: #E83F3F
+    color: var(--love)
 
 
 .line
@@ -23,3 +25,13 @@
 
 div.line1
     margin-bottom: 1em
+
+@include tablet
+    .main
+        font-size: 3em !important
+        color: red
+
+@include desktop
+    .main
+        font-size: 4em !important
+        color: blue

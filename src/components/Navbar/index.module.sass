@@ -1,3 +1,5 @@
+@import '../../styles/global';
+
 .navbar
     height: 5em
     position: fixed
@@ -6,22 +8,81 @@
     z-index: 100
     border-bottom: 1px solid var(--border-color-light, --border-color);
     background: var(--bg-color)
+    overflow: hidden
+    transition: height 300ms ease-out
+
+.open
+    height: 11em
+    transition: height 300ms ease-out
 
 .inner
-    padding: 2em 3em
+    padding: 0 2em
     display: flex
     align-items: center
+    height: 5em
     margin: 0 auto
     max-width: 1300px
     box-sizing: border-box
     justify-content: space-between
 
 .right
+    display: flex
+    align-items: center
     a
-        margin-right: 1.5em;
+        margin-left: 1em;
         text-decoration: none
+        margin-bottom: .2em
     button
         background: none
         border: none
         outline: none
         cursor: pointer
+
+.links
+    display: none
+
+.mobile
+    display: flex
+    padding: 1em 2em
+    flex-direction: column
+    justify-content: center
+    a
+        margin-right: 1em;
+        text-decoration: none
+        margin-bottom: 1em
+
+
+// -----menuIcon------
+.menuIcon svg
+    height: 1em
+
+\:global .theme-dark
+    \:local .menuIcon
+        fill: white
+
+.brightnessBtn button
+    height: 1em
+
+@include mobile-landscape 
+    .menuIcon  
+        display: none
+
+    .links
+        display: inline-block
+    
+    .open
+        height: 5em
+    
+.fixedLinks
+    display: flex
+    align-items: center
+    & > *
+        margin-left: 1em
+
+.fontBtn
+    font-family: 'Times New Roman', Times, serif
+    font-weight: bold
+    display: inline-block
+    font-size: 1.2em
+    color: var(--text-color)
+

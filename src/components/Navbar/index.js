@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import s from './index.module.sass';
 import LogoBlack from './logo-black.png'
+import LogoWhite from './logo-white.png'
+import cx from 'classnames';
 import { Link } from "gatsby"
-import sun from './sun.svg';
-import moon from './moon.svg';
-import coffee from './coffee.svg';
+import BrightnessButton from './BrightnessButton';
+import MenuIcon from './MenuIcon';
+
+const Links = ({ className, setOpen }) => (
+    <div className={cx(s.links, className)} onClick={() => setOpen(false)}>
+        <Link to="/">Home</Link>
+        {/* <Link to="/about">About</Link> */}
+        <Link to="/about">Blog</Link>
+    </div>
+)
 
 export default ({ theme, setTheme, location, font, setFont }) => {
 
@@ -22,22 +31,29 @@ export default ({ theme, setTheme, location, font, setFont }) => {
 
     const isBlog = location.pathname.indexOf('/blog') !== -1;
 
+    const [open, setOpen] = useState(false);
+
     return (
-        <div className={s.navbar}>
+        <div className={cx(s.navbar, { [s.open]: open })}>
             <div className={s.inner}>
-                <img src={LogoBlack} />
+                <div className={s.left}>
+                    <Link to="/">
+                        {theme === 'dark' 
+                            ? <img src={LogoWhite} />
+                            : <img src={LogoBlack} />
+                        }
+                    </Link>
+                </div>
                 <div className={s.right}>
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/about">Blog</Link>
-                    <button onClick={setNextTheme}>  
-                        { theme === 'light' && <img src={sun} />}
-                        { theme === 'dark' && <img src={moon} />}
-                        { theme === 'coffee' && <img src={coffee} />}
-                    </button>
-                    {isBlog && <button onClick={setNextFont}>F</button> }
+                    <Links setOpen={setOpen}/>
+                    <div className={s.fixedLinks}>
+                        {isBlog && <button className={s.fontBtn} onClick={setNextFont}>F</button> }
+                        <BrightnessButton theme={theme} setNextTheme={setNextTheme}/>
+                        <MenuIcon onClick={() => setOpen(!open)}/>
+                    </div>
                 </div>
             </div>
+            <Links className={s.mobile} setOpen={setOpen} />
         </div>
     )
 }

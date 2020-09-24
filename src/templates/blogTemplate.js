@@ -4,6 +4,7 @@ import s from './blogTemplate.module.sass';
 import cx from 'classnames';
 import { useEffect } from "react";
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+import ShareLinks from '../components/ShareLinks';
 
 
 export default function Template({
@@ -31,7 +32,7 @@ export default function Template({
           <ul className={s.tags}>
             {frontmatter.tags.split(",").map(tag => <li> {tag} </li>)}
           </ul>
-          <div className={s.social}></div>
+          <ShareLinks title={frontmatter.title} url={`https://github.noelzubin.io/${frontmatter.slug}`}/>
         </div>
       </div>
     </div>
