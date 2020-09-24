@@ -11,7 +11,7 @@ const Links = ({ className, setOpen }) => (
     <div className={cx(s.links, className)} onClick={() => setOpen(false)}>
         <Link to="/">Home</Link>
         {/* <Link to="/about">About</Link> */}
-        <Link to="/about">Blog</Link>
+        {/* <Link to="/blog">Blog</Link> */}
     </div>
 )
 
