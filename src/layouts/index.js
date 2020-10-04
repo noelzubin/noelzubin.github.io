@@ -5,12 +5,12 @@ import ThemeContext from '../components/ThemeContext';
 import SmoothScroll from '../components/SmoothScroll'
 import './index.scss';
 import useTheme from "../components/useTheme";
+import withTwoPassRendering from '../components/withTwoPassRendering';
 
-export default function Layout({ children, location }) {
+const Layout = ({ children, location }) => {
 
   const { theme, toggleTheme } = useTheme()
   const [font, setFont] = useState('serif')
-
 
   return (
     <div className={`theme-${theme}`}>
@@ -27,3 +27,5 @@ export default function Layout({ children, location }) {
     </div>
   )
 }
+
+export default withTwoPassRendering(Layout);
