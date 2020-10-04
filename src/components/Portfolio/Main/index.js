@@ -2,9 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import s from './index.module.sass'
 import anime from 'animejs';
 import cx from 'classnames';
+import { useLayoutEffect } from 'react';
+import { useState } from 'react';
 
 const Main = () => {
     const main = useRef(null);
+    const [ show, setShow ] = useState(false);
+
+    useLayoutEffect(() => {
+        setShow(true);
+    }, [])
 
     useEffect(() => {
         anime ({
@@ -17,7 +24,7 @@ const Main = () => {
     }, [])
 
     return (
-        <div ref={main} className={s.main}>
+        <div ref={main} style={{ visibility: 'hidden' }} className={cx(s.main, {[s.show]: show} )}>
             <div className={cx(s.line, s.line1)}>
                 <Lettered>
                     Hi I'm Noel
