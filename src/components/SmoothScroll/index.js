@@ -11,10 +11,6 @@ if (typeof window!== 'undefined') {
     lerp: (a, b, n) => (1 - n) * a + n * b
   };
   
-  let winsize;
-  const calcWinsize = () => winsize = {width: window.innerWidth, height: window.innerHeight};
-  calcWinsize();
-  
   let docScroll;
   const getPageYScroll = () => docScroll = window.pageYOffset || document.documentElement.scrollTop;
   getPageYScroll()
@@ -44,7 +40,6 @@ if (typeof window!== 'undefined') {
     }
   
     initEvents() {
-      window.addEventListener('resize', calcWinsize);
       window.addEventListener('scroll', getPageYScroll);
       window.addEventListener('resize', () => this.setSize());
       window.addEventListener('locationchange', () => this.setSize());

@@ -52,7 +52,7 @@ const Lettered = ({ children }) => {
     if (typeof children !== 'string') throw new Error('expected string children');
     return (
         <>
-            {[...children].map(char => <span className="letter">{char}</span> )}
+            {[...children].map((char,ind) => <span key={ind} className="letter">{char}</span> )}
         </>
     )
 } 

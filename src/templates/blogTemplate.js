@@ -30,9 +30,9 @@ export default function Template({
         />
         <div className={s.footer}>
           <ul className={s.tags}>
-            {frontmatter.tags.split(",").map(tag => <li> {tag} </li>)}
+            {frontmatter.tags.split(",").map(tag => <li key={tag}> {tag} </li>)}
           </ul>
-          <ShareLinks title={frontmatter.title} url={`https://github.noelzubin.io/${frontmatter.slug}`}/>
+          <ShareLinks title={frontmatter.title} url={`https://noelzubin.github.io${frontmatter.slug}`}/>
         </div>
       </div>
     </div>

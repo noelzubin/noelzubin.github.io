@@ -4,18 +4,18 @@ import Navbar from '../components/Navbar';
 import ThemeContext from '../components/ThemeContext';
 import SmoothScroll from '../components/SmoothScroll'
 import './index.scss';
+import useTheme from "../components/useTheme";
 
 export default function Layout({ children, location }) {
 
-  const [theme, setTheme] = useState('light')
+  const { theme, toggleTheme } = useTheme()
   const [font, setFont] = useState('serif')
-
 
 
   return (
     <div className={`theme-${theme}`}>
       <ThemeContext.Provider value={theme}>
-        <Navbar setTheme={setTheme} theme={theme} location={location} font={font} setFont={setFont} /> 
+        <Navbar toggleTheme={toggleTheme} theme={theme} location={location} font={font} setFont={setFont} /> 
         <div className={`container font-${font}`}>
             <SmoothScroll location={location}>
               <Transition location={location}>

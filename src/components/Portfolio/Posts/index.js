@@ -8,7 +8,7 @@ const Posts = ({ posts }) => {
             <h2>Recent Posts</h2>
             <ul className={s.articles}>
                 {posts.map(({node: {frontmatter }}) => (
-                   <li className={s.article}>
+                   <li key={frontmatter.slug} className={s.article}>
                        <Link to={frontmatter.slug}>
                             <div className={s.date}>{frontmatter.date}</div>
                             <div className={s.title}>{frontmatter.title}</div>
