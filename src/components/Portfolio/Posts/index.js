@@ -16,6 +16,12 @@ const Posts = ({ posts }) => {
                    </li>
                 ))}
             </ul>
+            <h2>Recent Projects</h2>
+            <ul className={s.projects}>
+                <li>
+                   <a target="_blank" href="https://github.com/noelzubin/scalable-react">Scalable React Starter</a>
+                </li>
+            </ul>
         </div>
     )
 } 
