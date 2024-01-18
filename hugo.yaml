@@ -1,0 +1,37 @@
+baseURL: 'https://noelzubin.github.io/'
+languageCode: en-us
+paginate: 6
+summarylength: 10
+title: Blogge | Personal Blog Template
+theme: blogge
+
+menu:
+  main:
+    - name: Home
+      url: ''
+      weight: 1
+    - name: About
+      url: about
+      weight: 2
+    # - name: Contact
+    #   url: contact
+    #   weight: 3
+
+params:
+  summarylength: 80
+  logo: images/logo.svg
+  author: Noel
+  authorThumb: images/author.png
+  # instaUsername: mary_astor
+  # facebookUsername: mary_astor
+  twitterUsername: noelzubinvictor
+  linkedinUsername: noel-zubin-victor-1b9115123
+  githubUsername: noelzubin
+  blogTitle: Articles
+  # blogSubTitle: View the latest news on Blogger
+  trendingBlogIcon: images/blog/icon.svg
+  fabformURL: 9AJk8ro
+  googleMapAPI: AIzaSyC9rV6yesIygoVKTD6QLf_iCa9eiIIHqZ0
+  
+taxonomies:
+  tag: tags

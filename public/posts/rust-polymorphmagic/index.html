@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Rust PolymorphMagic</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  
+  <meta name="author" content="Noel">
+  
+  <meta name="generator" content="Hugo 0.121.2">
+
+  <link rel="stylesheet" href=https://noelzubin.github.io/plugins/font-awesome/css/font-awesome.min.css />
+  
+  <link href="https://noelzubin.github.io/scss/style.min.css" rel="stylesheet" />
+
+  <link rel="shortcut icon" href=https://noelzubin.github.io/images/favicon.ico type="image/x-icon" />
+  <link rel="icon" href=https://noelzubin.github.io/images/favicon.svg type="image/x-icon" />
+</head>
+
+<body>
+    
+<nav class="main-nav navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href=https://noelzubin.github.io/>
+      <img class="logo-main" src=https://noelzubin.github.io/images/logo.svg alt="logo" />
+    </a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#mainNav">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse nav-list" id="mainNav">
+      
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href=https://noelzubin.github.io/>Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href=https://noelzubin.github.io/about>About</a>
+        </li>
+        
+      </ul>
+      <ul class="main-nav-social">
+        
+        <li>
+          <a href="https://twitter.com/noelzubinvictor">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/noel-zubin-victor-1b9115123">
+            <i class="fa fa-linkedin"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/noelzubin">
+            <i class="fa fa-github"></i>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div id="content">
+        
+
+<section class="blog-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2 order-2 order-lg-1">
+        <div class="share-now">
+          <a href="#" class="scrol">Share</a>
+          <div class="sociel-icon">
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fnoelzubin.github.io%2fposts%2frust-polymorphmagic%2f" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a href="http://www.twitter.com/intent/tweet?url=https%3a%2f%2fnoelzubin.github.io%2fposts%2frust-polymorphmagic%2f" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/cws/share?url=https%3a%2f%2fnoelzubin.github.io%2fposts%2frust-polymorphmagic%2f" target="_blank">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-10 order-1 order-lg-2">
+        <article class="single-blog">
+          <a href=https://noelzubin.github.io/tags/code class="tag">code</a>
+          <p class="title">Rust PolymorphMagic</p>
+          <ul class="meta">
+            
+            <li>
+              <i class="fa fa-clock-o"></i>
+              May 4, 2021 - 3 min read
+            </li>
+          </ul>
+          
+          <div class="single-blog-content">
+            <p>Rust stands out for its impressive ability to provide zero-cost abstractions, a
+feature that ensures developers don&rsquo;t have to sacrifice performance for advanced
+functionality. This aspect of Rust becomes even more apparent when exploring the
+actix-web library. The  library allows developers to build powerful web
+applications with amazing flexibility and performance. But what catches most
+developers eye is how bewilderingly flexible the api is. Here is a little taste of
+what the api look like.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// this function takes 1 arg, and returns a string
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">one_param</span>(path: <span style="color:#a6e22e">Path</span><span style="color:#f92672">&lt;</span>NameStruct<span style="color:#f92672">&gt;</span>) -&gt; String {
+</span></span><span style="display:flex;"><span>    format!(<span style="color:#e6db74">&#34;Hello </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">!&#34;</span>, path.name)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// this function takes 2 args, and returns json 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">two_params</span>(data: <span style="color:#a6e22e">web</span>::Data<span style="color:#f92672">&lt;</span>AppState<span style="color:#f92672">&gt;</span>, body: <span style="color:#a6e22e">web</span>::Json<span style="color:#f92672">&lt;</span>Info<span style="color:#f92672">&gt;</span>) -&gt; <span style="color:#a6e22e">impl</span> Responder {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> count <span style="color:#f92672">=</span> data.count.get();
+</span></span><span style="display:flex;"><span>    body
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// But all the function are registered the same way. But how ?
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>App::new()
+</span></span><span style="display:flex;"><span>    .route(<span style="color:#e6db74">&#34;/no-param&#34;</span>, web::get().to(<span style="color:#f92672">||</span> <span style="color:#66d9ef">async</span> { <span style="color:#e6db74">&#34;Hello there!&#34;</span> }))
+</span></span><span style="display:flex;"><span>    .route(<span style="color:#e6db74">&#34;/one-param/{name}&#34;</span>, web::get().to(one_param))
+</span></span><span style="display:flex;"><span>    .route(<span style="color:#e6db74">&#34;/two/&#34;</span>, web::get().to(web::post().to(two_param)))
+</span></span></code></pre></div><p>The <code>to</code> function takes as input a function that can not only take any number of arguments, but it also injects into the arguments - the right values based on its type upon invocation. For a language that lacks polymorphism, or functions with variable arity, this seems like an impossible pattern. In this post, I’ll attempt to decipher and recreate this fascinating pattern.</p>
+<p>I’ll create a Bakery library. A bakery has a supermarket assigned to it, and it takes in orders to create delicious goods out of the things it bought from the supermarket. The final API would look something like this.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> bakery <span style="color:#f92672">=</span> Bakery::new();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    bakery.order(<span style="color:#f92672">|</span>_: <span style="color:#a6e22e">Banana</span><span style="color:#f92672">|</span> Banana); <span style="color:#75715e">// 1 arg, Makes a banana
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    bakery.order(<span style="color:#f92672">|</span>_: <span style="color:#a6e22e">Chocolate</span>, _: <span style="color:#a6e22e">Milk</span><span style="color:#f92672">|</span> Cookie); <span style="color:#75715e">// 2 args, Makes a cookie
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    bakery.process()
+</span></span></code></pre></div><p>Before we start with the implementation, let’s get some basic things out of the way. In Actix-web the arguments of the handler function have to implement <code>fromRequest</code> and the response have to implment <code>HttpResponse</code>. In my case I came up with <code>Buyable</code> and <code>Eatable</code>. <code>Buyable</code>s are things you buy from a supermarket and <code>Eatable</code>s are things that are produced in the bakery.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Chocolate</span>; <span style="color:#75715e">// Buyable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Milk</span>; <span style="color:#75715e">// Buyable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Banana</span>; <span style="color:#75715e">// Buyable + Eatable (uhhh they&#39;re reselling bananas ?)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Cookie</span>; <span style="color:#75715e">// Eatable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> Buyable { <span style="color:#75715e">// can be bought from the supermarket
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">buy</span>(store: <span style="color:#a6e22e">Supermarket</span>) -&gt; <span style="color:#a6e22e">Self</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> Eatable: <span style="color:#a6e22e">std</span>::fmt::Debug { <span style="color:#75715e">// made in the bakery
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">eat</span>(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self) {
+</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;eating&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// The Buyables
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">impl</span> Buyable <span style="color:#66d9ef">for</span> Chocolate {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">buy</span>(_store: <span style="color:#a6e22e">Supermarket</span>) -&gt; <span style="color:#a6e22e">Chocolate</span> {
+</span></span><span style="display:flex;"><span>        Chocolate
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Buyable <span style="color:#66d9ef">for</span> Milk {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">buy</span>(_store: <span style="color:#a6e22e">Supermarket</span>) -&gt; <span style="color:#a6e22e">Milk</span> {
+</span></span><span style="display:flex;"><span>        Milk
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Buyable <span style="color:#66d9ef">for</span> Banana {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">buy</span>(_store: <span style="color:#a6e22e">Supermarket</span>) -&gt; <span style="color:#a6e22e">Banana</span> {
+</span></span><span style="display:flex;"><span>        Banana
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// The Eatables
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">impl</span> Eatable <span style="color:#66d9ef">for</span> Cookie {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Eatable <span style="color:#66d9ef">for</span> Banana {}
+</span></span></code></pre></div><p>lets start with our Bakery implementation then. It has a supermarket assigned to it and also a <code>Vec</code> of our orders. But how do we tell Rust that ?. Our handlers are distinct functions with different signatures.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Supermarket</span> {} <span style="color:#75715e">// we can buy stuff from here.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Bakery</span> {
+</span></span><span style="display:flex;"><span>    store: <span style="color:#a6e22e">Supermarket</span>,
+</span></span><span style="display:flex;"><span>    orders: Vec<span style="color:#f92672">&lt;</span> <span style="color:#f92672">???</span> <span style="color:#66d9ef">OUR</span> <span style="color:#66d9ef">HANDLERS</span> <span style="color:#f92672">???</span> <span style="color:#f92672">&gt;&gt;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We clearly need to <code>trait</code> these handlers into one. Furthermore, what would the input for our order function be ?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Bakery {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">order</span>(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self, f: <span style="color:#f92672">??</span> <span style="color:#66d9ef">WHAT</span> <span style="color:#66d9ef">GOES</span> <span style="color:#66d9ef">HERE</span> <span style="color:#f92672">??</span> ) {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Hmm, OK let’s see if I can characterize all the functions with a trait.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> Handler<span style="color:#f92672">&lt;</span>Args, E<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">call</span>(<span style="color:#f92672">&amp;</span>self, args: <span style="color:#f92672">..</span>.Args) -&gt; <span style="color:#a6e22e">E</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Cool, except rust doesn’t support <code>...Args</code>. I have to specify the exact number of function arguments.</p>
+<p>Wait, How does Actix do it then ????.
+Actix has a main <code>Service</code> trait. <code>async fn(Request) -&gt; Result&lt;Response, Err&gt;</code>
+Which isn&rsquo;t surprising. This looks like an everyday request handler. So how does
+it convert all the handlers we write into this service trait ?.</p>
+<p>This is the
+smart bit. There are 2 parts to it. Firstly, the <code>call</code> method in the Actix
+<code>Handler</code> doesn&rsquo;t have multiple args. Instead takes a single arg <code>Arg</code>. Then it
+implements <a href="https://github.com/actix/actix-web/blob/05b4c4964f2b26e44bc1cd95409ef92018f59fd8/actix-web/src/handler.rs#L134-L149"><code>Handler</code> for functions of different
+airities</a>,
+the arguments are converted into a single argument which is a tuple of all the
+arguments passed into the function. Secondly the <a href="https://github.com/actix/actix-web/blob/215a52f56535a8ab104159c84d02461841d5d340/actix-web/src/extract.rs#L319"><code>FromRequest</code> trait is
+implemented for tuple of all
+sizes</a>.
+Now we can convert the <a href="https://github.com/actix/actix-web/blob/05b4c4964f2b26e44bc1cd95409ef92018f59fd8/actix-web/src/handler.rs#L99-L124"><code>Handler</code>s into
+<code>Service</code></a>
+by simply converting the request to a <code>FromRequest</code> tuple that can be invoked by
+the handler function to return the result. Following the same pattern for our
+bakery. We need implement our <code>Handler</code> for functions of different airities, Also we need to implement <code>Buyable</code> for tuples of different sizes too.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> Handler<span style="color:#f92672">&lt;</span>Args, E<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">call</span>(<span style="color:#f92672">&amp;</span>self, args: <span style="color:#a6e22e">Args</span>) -&gt; <span style="color:#a6e22e">E</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Implement Buyable for tuples.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">impl</span><span style="color:#f92672">&lt;</span>Arg1<span style="color:#f92672">&gt;</span> Buyable <span style="color:#66d9ef">for</span> (Arg1,)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>    Arg1: <span style="color:#a6e22e">Buyable</span>,
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">buy</span>(store: <span style="color:#a6e22e">Supermarket</span>) -&gt; (Arg1,) {
+</span></span><span style="display:flex;"><span>        (Buyable::buy(store),)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span><span style="color:#f92672">&lt;</span>Arg1, Arg2<span style="color:#f92672">&gt;</span> Buyable <span style="color:#66d9ef">for</span> (Arg1, Arg2)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>    Arg1: <span style="color:#a6e22e">Buyable</span>,
+</span></span><span style="display:flex;"><span>    Arg2: <span style="color:#a6e22e">Buyable</span>,
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">buy</span>(store: <span style="color:#a6e22e">Supermarket</span>) -&gt; (Arg1, Arg2) {
+</span></span><span style="display:flex;"><span>        (Buyable::buy(store), Buyable::buy(store))
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> Handler<span style="color:#f92672">&lt;</span>Args, E<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">call</span>(<span style="color:#f92672">&amp;</span>self, args: <span style="color:#a6e22e">Args</span>) -&gt; <span style="color:#a6e22e">E</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// For Functions with single argument
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">impl</span><span style="color:#f92672">&lt;</span>F, Arg1, E<span style="color:#f92672">&gt;</span> Handler<span style="color:#f92672">&lt;</span>(Arg1,), E<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">for</span> F
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>    F: Fn(Arg1) -&gt; <span style="color:#a6e22e">E</span>,
+</span></span><span style="display:flex;"><span>    Arg1: <span style="color:#a6e22e">Buyable</span>,
+</span></span><span style="display:flex;"><span>    E: <span style="color:#a6e22e">Eatable</span>,
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">call</span>(<span style="color:#f92672">&amp;</span>self, (arg1,): (Arg1,)) -&gt; <span style="color:#a6e22e">E</span> {
+</span></span><span style="display:flex;"><span>        self(arg1)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// For functions with 2 arguments
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">impl</span><span style="color:#f92672">&lt;</span>F, Arg1, Arg2, E<span style="color:#f92672">&gt;</span> Handler<span style="color:#f92672">&lt;</span>(Arg1, Arg2), E<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">for</span> F
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>    F: Fn(Arg1, Arg2) -&gt; <span style="color:#a6e22e">E</span>,
+</span></span><span style="display:flex;"><span>    Arg1: <span style="color:#a6e22e">Buyable</span>,
+</span></span><span style="display:flex;"><span>    Arg2: <span style="color:#a6e22e">Buyable</span>,
+</span></span><span style="display:flex;"><span>    E: <span style="color:#a6e22e">Eatable</span>,
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">call</span>(<span style="color:#f92672">&amp;</span>self, (arg1, arg2): (Arg1, Arg2)) -&gt; <span style="color:#a6e22e">E</span> {
+</span></span><span style="display:flex;"><span>        self(arg1, arg2)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now we can finally write our <code>order</code> function. Which simply invokes <code>self.call</code> on the <code>Handler</code> passed into it with the right tuple of arguments.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#e6db74">/// Supermarket sells stuff to bake with.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#75715e">#[derive(Clone, Copy)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Supermarket</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">/// MAIN APP STUFF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/// Bakery buys stuff from the supermarket and makes Eatables
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Bakery</span> {
+</span></span><span style="display:flex;"><span>    store: <span style="color:#a6e22e">Supermarket</span>,
+</span></span><span style="display:flex;"><span>    orders: Vec<span style="color:#f92672">&lt;</span>Box<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">dyn</span> FnOnce() -&gt; Box<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">dyn</span> Eatable<span style="color:#f92672">&gt;&gt;&gt;</span>, <span style="color:#75715e">// stores the wrapped handlers.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Bakery {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">new</span>() -&gt; <span style="color:#a6e22e">Self</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// create a empty
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Bakery {
+</span></span><span style="display:flex;"><span>            store: <span style="color:#a6e22e">Supermarket</span> {},
+</span></span><span style="display:flex;"><span>            orders: Vec::new(),
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">&lt;</span>F, Args, E<span style="color:#f92672">&gt;</span>(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> self, f: <span style="color:#a6e22e">F</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>        F: <span style="color:#a6e22e">Handler</span><span style="color:#f92672">&lt;</span>Args, E<span style="color:#f92672">&gt;</span> <span style="color:#f92672">+</span> &#39;static,
+</span></span><span style="display:flex;"><span>        Args: <span style="color:#a6e22e">Buyable</span>,
+</span></span><span style="display:flex;"><span>        E: <span style="color:#a6e22e">Eatable</span> <span style="color:#f92672">+</span> &#39;static,
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> store <span style="color:#f92672">=</span> self.store;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> ff <span style="color:#f92672">=</span> <span style="color:#66d9ef">move</span> <span style="color:#f92672">||</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// The main magic happens here. Rust compiler ensures that
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">// the tuple is generated with the right arguments to be 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">// passsed to the handler.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">let</span> args <span style="color:#f92672">=</span> Buyable::buy(store); <span style="color:#75715e">// Creates a tuple of n elements.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">let</span> eatable: Box<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">dyn</span> Eatable<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> Box::new(f.call(args)); 
+</span></span><span style="display:flex;"><span>            eatable
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>        self.orders.push(Box::new(ff));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// process just calls the vector of wrapped orders.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">process</span>(self) {
+</span></span><span style="display:flex;"><span>        dbg!(self.orders.into_iter().map(<span style="color:#f92672">|</span>f<span style="color:#f92672">|</span> { f() }).collect::<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span>_<span style="color:#f92672">&gt;&gt;</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> bakery <span style="color:#f92672">=</span> Bakery::new();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    bakery.order(<span style="color:#f92672">|</span>_: <span style="color:#a6e22e">Chocolate</span>, _: <span style="color:#a6e22e">Milk</span><span style="color:#f92672">|</span> Cookie);
+</span></span><span style="display:flex;"><span>    bakery.order(<span style="color:#f92672">|</span>_: <span style="color:#a6e22e">Banana</span><span style="color:#f92672">|</span> Banana);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    bakery.process()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Right now, this code only supports functions with a max arity of 2. But you can easily allow functions with more arity by implementing the corresponding <code>Handler</code> and <code>Buyable</code> traits. In the actix-web library, it supports up to 12 arities, and it makes use of declarative macros in rust to implement the trait for all the different function signatures.</p>
+<p>Working out this pattern in rust was very amusing, and it is pretty amazing how the rust compiler can compile an eccentric pattern like this. Also kudos to whoever implemented this in the actix-web library.</p>
+
+          </div>
+
+        </article>
+        <div class="blog-single-presentation">
+          <ul>
+            
+            <li> <a href="/posts/node-streams/" class="tag">PREVIOUS</a>
+              <a href="/posts/node-streams/" class="title">
+                Dive into streams with NodeJS
+              </a>
+              <i class="fa fa-clock-o"></i>
+              April 4, 2019 - 1 min
+            </li>
+            
+            
+            <li> <a href="/posts/crossing-the-fence/" class="tag">Next</a>
+              <a href="/posts/crossing-the-fence/" class="title">
+                Crossing the fence. A introduction to Memory Barriers
+              </a>
+              <i class="fa fa-clock-o"></i>
+              December 21, 2023 - 4 min
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    </div>
+    
+
+    <footer class="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 mx-auto text-center">
+        <div class="footer-logo">
+          <img width="100" src=https://noelzubin.github.io/images/logo.svg alt="logo" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="footer-nav">
+          <ul class="navbar-nav">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://noelzubin.github.io/">Home</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://noelzubin.github.io/about">About</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="sociale-icon">
+          <ul>
+            <li>
+              <a href="https://twitter.com/noelzubinvictor">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/noel-zubin-victor-1b9115123">
+                <i class="fa fa-linkedin"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/noelzubin">
+                <i class="fa fa-github"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</footer>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9rV6yesIygoVKTD6QLf_iCa9eiIIHqZ0&libraries=geometry"></script>
+
+
+
+<script src="https://noelzubin.github.io/js/vendor.min.js"></script>
+
+
+
+<script src="https://noelzubin.github.io/js/script.min.js"></script>
+</body>
+
+</html>

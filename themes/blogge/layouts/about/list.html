@@ -1,0 +1,73 @@
+{{ define "main" }}
+
+<section class="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="about-me">
+          <img class="actor mb-3" src="{{ .Site.Params.authorThumb | absURL}}" alt="image">
+          <h3>Hi I Am {{ .Site.Params.author }}</h3>
+          <!-- <p>{{ .Site.Data.about.description }} </p> -->
+          <p> 
+            Hey there, internet wanderers! 👋 Welcome to the digital playground
+            of a passionately curious full-stack developer, where the code runs
+            wild and the ideas flow like coffee in a programmer's veins. I'm the
+            kind of person who finds joy in the intricate dance of 1s and 0s,
+            turning them into something that not only works but sings
+            (metaphorically, of course, unless you count those beeps and boops
+            as music).
+          </p>
+
+          <div class="banner" style="display: flex">
+            <div class="about-shape-right-top">
+              <img src={{ "images/about/blob1.svg" | absURL }} alt="svg">
+            </div>
+            <div class="about-shape-left-bottom">
+              <img src={{ "images/about/blob1.svg" | absURL }} alt="svg">
+            </div>
+            <img style="width: 60rem; max-height: 30rem; object-fit: cover; margin: 0 auto;" src={{ "images/about/bn.svg" | absURL }} alt="banner">
+          </div>
+
+          <p>
+            Coding? Love it. Learning new stuff? Can't get enough. It's like my
+            brain is on a never-ending treasure hunt, and every piece of
+            knowledge is a shiny gold coin. And when I'm not wrangling code or
+            diving headfirst into the latest tech trend, you can find me
+            passionately debating the finer points of football. Yes, the
+            beautiful game where the only thing more unpredictable than a
+            last-minute goal is JavaScript's 'this' keyword.
+          </p>
+            
+          <p>
+            So, whether you're here to explore the mystical world of full-stack
+            development, looking for a techy laugh, or just randomly stumbled
+            upon my blog while trying to figure out why your printer won't work
+            (spoiler: it's a universal mystery), I hope you find something that
+            tickles your fancy
+          </p>
+
+          <p>
+            Remember, in a world full of algorithms, never forget to enjoy the
+            'human' in 'human error'. 
+          </p>
+
+          <!-- <h3>{{ .Site.Data.about.bioTitle }}</h3>
+          <p> {{ .Site.Data.about.bioDescription | markdownify }}</p> -->
+          <h3>I am a social person</h3>
+          <ul class="soicel-icon">
+            <!-- <li> <a href="https://www.facebook.com/{{ .Site.Params.facebookUsername }}"><i
+                  class="fa fa-facebook"></i></a></li> -->
+            <li> <a href="https://www.twitter.com/{{ .Site.Params.twitterUsername }}"><i class="fa fa-twitter"></i></a>
+            </li>
+            <!-- <li> <a href="https://www.facebook.com/{{ .Site.Params.instaUsername }}"><i class="fa fa-instagram"></i></a>
+            </li> -->
+            <li><a href="https://www.linkedin.com/in/{{ .Site.Params.linkedinUsername }}"><i
+                  class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

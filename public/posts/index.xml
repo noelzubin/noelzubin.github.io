@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Blogge | Personal Blog Template</title>
+    <link>https://noelzubin.github.io/posts/</link>
+    <description>Recent content in Posts on Blogge | Personal Blog Template</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Dec 2023 18:10:40 +0600</lastBuildDate>
+    <atom:link href="https://noelzubin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crossing the fence. A introduction to Memory Barriers</title>
+      <link>https://noelzubin.github.io/posts/crossing-the-fence/</link>
+      <pubDate>Thu, 21 Dec 2023 18:10:40 +0600</pubDate>
+      <guid>https://noelzubin.github.io/posts/crossing-the-fence/</guid>
+      <description>Every CPU executes programs that generate memory access operations. These operations can be performed by the CPU in any order it prefers, as long as the program&amp;rsquo;s causality is preserved.</description>
+    </item>
+    <item>
+      <title>Rust PolymorphMagic</title>
+      <link>https://noelzubin.github.io/posts/rust-polymorphmagic/</link>
+      <pubDate>Tue, 04 May 2021 15:15:04 +0530</pubDate>
+      <guid>https://noelzubin.github.io/posts/rust-polymorphmagic/</guid>
+      <description>Rust stands out for its impressive ability to provide zero-cost abstractions, a feature that ensures developers don&amp;rsquo;t have to sacrifice performance for advanced functionality.</description>
+    </item>
+    <item>
+      <title>Dive into streams with NodeJS</title>
+      <link>https://noelzubin.github.io/posts/node-streams/</link>
+      <pubDate>Thu, 04 Apr 2019 15:15:04 +0530</pubDate>
+      <guid>https://noelzubin.github.io/posts/node-streams/</guid>
+      <description>You know the time you had to fit that streaming code you wrote into your async/await promise workflow.</description>
+    </item>
+  </channel>
+</rss>
