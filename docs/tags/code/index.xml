@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Blogge | Personal Blog Template</title>
-    <link>https://noelzubin.github.io/posts/</link>
-    <description>Recent content in Posts on Blogge | Personal Blog Template</description>
+    <title>code on Noel - My Personal Blog</title>
+    <link>https://noelzubin.github.io/tags/code/</link>
+    <description>Recent content in code on Noel - My Personal Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 21 Dec 2023 18:10:40 +0600</lastBuildDate>
-    <atom:link href="https://noelzubin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://noelzubin.github.io/tags/code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Crossing the fence. A introduction to Memory Barriers</title>
       <link>https://noelzubin.github.io/posts/crossing-the-fence/</link>

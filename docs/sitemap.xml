@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://noelzubin.github.io/</loc>
-    <lastmod>2023-12-21T18:10:40+06:00</lastmod>
-  </url><url>
     <loc>https://noelzubin.github.io/tags/code/</loc>
     <lastmod>2023-12-21T18:10:40+06:00</lastmod>
   </url><url>
     <loc>https://noelzubin.github.io/posts/crossing-the-fence/</loc>
+    <lastmod>2023-12-21T18:10:40+06:00</lastmod>
+  </url><url>
+    <loc>https://noelzubin.github.io/</loc>
     <lastmod>2023-12-21T18:10:40+06:00</lastmod>
   </url><url>
     <loc>https://noelzubin.github.io/posts/</loc>

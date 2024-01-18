@@ -1,9 +1,11 @@
-baseURL: 'https://noelzubin.github.io/'
 languageCode: en-us
+baseURL: 'https://noelzubin.github.io/'
 paginate: 6
 summarylength: 10
-title: Blogge | Personal Blog Template
+title: Noel - My Personal Blog
 theme: blogge
+publishDir: docs
+
 
 menu:
   main:
@@ -31,7 +33,7 @@ params:
   # blogSubTitle: View the latest news on Blogger
   trendingBlogIcon: images/blog/icon.svg
   fabformURL: 9AJk8ro
-  googleMapAPI: AIzaSyC9rV6yesIygoVKTD6QLf_iCa9eiIIHqZ0
+  # googleMapAPI: AIzaSyC9rV6yesIygoVKTD6QLf_iCa9eiIIHqZ0
   
 taxonomies:
   tag: tags
