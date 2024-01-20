@@ -6,6 +6,9 @@ title: Noel - My Personal Blog
 theme: blogge
 publishDir: docs
 
+services:
+  googleAnalytics:
+    ID: "G-EZJWSXZFN7"
 
 menu:
   main:
